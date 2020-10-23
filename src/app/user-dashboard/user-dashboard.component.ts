@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { Constants } from '../core/utils/constants';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
    selector: 'app-user-dashboard',
@@ -14,13 +15,14 @@ export class UserDashboardComponent implements OnInit, OnDestroy {
    cardDetailsForm: FormGroup;
    public loginForm: FormGroup;
    public todaysDate = new Date();
-   labels = Constants.UserDetailsForm;
+   labels = Constants.userDetailsForm;
    warningLables = Constants.warningMessages;
    regEx = Constants.generalRegEx;
    paymentSubscription: Subscription;
    public isSubmitClicked: boolean;
    hideForm: boolean;
    hideSuccessMsg: boolean;
+   failMsg: boolean;
    constructor(private fb: FormBuilder, private paymentService: PaymentService) { }
 
    ngOnInit() {
@@ -53,6 +55,8 @@ export class UserDashboardComponent implements OnInit, OnDestroy {
                this.cardDetailsForm.reset();
                this.isSubmitClicked = false;
             }
+         }, (error: HttpErrorResponse) => {
+            this.failMsg = true;
          });
       }
    }
@@ -63,5 +67,8 @@ export class UserDashboardComponent implements OnInit, OnDestroy {
    }
    onClickClose() {
       this.hideSuccessMsg = false;
+   }
+   onClickFailClose() {
+      this.failMsg = false;
    }
 }

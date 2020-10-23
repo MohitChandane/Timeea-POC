@@ -1,18 +1,20 @@
 <div class="alert alert-success" role="alert" *ngIf="hideSuccessMsg">
-   Card details have been submitted successfully.
+   {{warningLables.successMessage}}
    <i class="fa fa-times" style="float: right;" aria-hidden="true" (click)="onClickClose()"></i>
 </div>
+<div class="alert alert-danger" role="alert" *ngIf="failMsg">
+   {{warningLables.failedMessage}}
+   <i class="fa fa-times" style="float: right;" aria-hidden="true" (click)="onClickFailClose()"></i>
+ </div>
 <div class="container shadow p-3 mb-5 bg-white rounded">
-   <h2>Card Details Form</h2>
-   <!-- <i class="fa fa-user-circle-o fa-5x d-flex justify-content-center" aria-hidden="true"></i> -->
+   <h2>{{labels.cardDetailsForm}}</h2>
    <form [formGroup]="cardDetailsForm">
       <div class="form-group">
-         <label class="sr-only" for="inlineFormInputGroupUsername">Credit Card Number</label>
          <div class="input-group mt-3">
             <div class="input-group-prepend">
                <div class="input-group-text">{{labels.creditCardNumber}}</div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername"
+            <input type="text" class="form-control" id="credit-card-number"
                placeholder={{labels.creditCardNumber}} formControlName="creditCardNumber">
          </div>
          <span class="text-danger"
@@ -23,9 +25,9 @@
       <div class="form-group">
          <div class="input-group">
             <div class="input-group-prepend">
-               <div class="input-group-text">Card holder name</div>
+               <div class="input-group-text">{{labels.cardHolder}}</div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername"
+            <input type="text" class="form-control" id="card-holder-name"
                placeholder="{{labels.cardHolder}}" formControlName="cardHolder">
          </div>
          <span class="text-danger"
@@ -34,10 +36,10 @@
          </span>
       </div>
       <div class="form-group">
-         <label class="sr-only" for="inlineFormInputGroupUsername">Expiration date</label>
+         <label class="sr-only" for="inlineFormInputGroupUsername">{{labels.expirationDate}}</label>
          <div class="input-group mt-3">
             <div class="input-group-prepend">
-               <div class="input-group-text">Expiration date</div>
+               <div class="input-group-text">{{labels.expirationDate}}</div>
             </div>
             <input class="form-control" type="date" id="expirationDate" name="birthday" formControlName="expirationDate"
                min="{{todaysDate | date:'yyyy-MM-dd'}}" placeholder="expirationDate">
@@ -48,10 +50,10 @@
          </span>
       </div>
       <div class="form-group">
-         <label class="sr-only" for="inlineFormInputGroupUsername">Security code</label>
+         <label class="sr-only" for="inlineFormInputGroupUsername">{{labels.securityCode}}</label>
          <div class="input-group mt-3">
             <div class="input-group-prepend">
-               <div class="input-group-text">Security code</div>
+               <div class="input-group-text">{{labels.securityCode}}</div>
             </div>
             <input maxlength="3" type="text" class="form-control" id="inlineFormInputGroupUsername"
                placeholder="{{labels.securityCode}}" formControlName="securityCode">
@@ -62,10 +64,10 @@
          </span>
       </div>
       <div class="form-group">
-         <label class="sr-only" for="inlineFormInputGroupUsername">Amount</label>
+         <label class="sr-only" for="inlineFormInputGroupUsername">{{labels.amount}}</label>
          <div class="input-group mt-3">
             <div class="input-group-prepend">
-               <div class="input-group-text">Amount</div>
+               <div class="input-group-text">{{labels.amount}}</div>
             </div>
             <input type="text" class="form-control" id="amount" placeholder="{{labels.amount}}"
                formControlName="amount">
@@ -76,7 +78,7 @@
          </span>
       </div>
       <div class="form-group d-flex justify-content-center">
-         <button type="submit" class="btn btn-primary btn-block ml-5 mr-5" (click)="onClickSubmit()">Submit</button>
+         <button type="submit" class="btn btn-primary btn-block ml-5 mr-5" (click)="onClickSubmit()">{{labels.submit}}</button>
       </div>
    </form>
 </div>

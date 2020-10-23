@@ -1,10 +1,12 @@
 export class Constants {
-   public static UserDetailsForm = {
+   public static userDetailsForm = {
       creditCardNumber: 'Credit card number',
       securityCode: 'Security code',
       amount: 'Amount',
       expirationDate: 'Expiration date',
-      cardHolder: 'Card holder name'
+      cardHolder: 'Card holder name',
+      submit: 'Submit',
+      cardDetailsForm: 'Card Details Form'
    };
 
    public static warningMessages = {
@@ -13,6 +15,9 @@ export class Constants {
       validAmount: 'Please enter valid amount.',
       validExpiry: 'Please enter valid expiry date.',
       validCardHolder: 'Please enter valid card holder name.',
+      successMessage: 'Card details have been submitted successfully.',
+      failedMessage: `Oops, Looks like you are not connected to backend, please navigate to src folder in separate terminal
+      and run command <node server.js> to get the server running and try again`
    };
 
    public static generalRegEx = {
