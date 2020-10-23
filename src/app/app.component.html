@@ -1,17 +1,28 @@
+<nav class="navbar navbar-dark bg-primary">
+   <span class="navbar-brand mb-0 h1">{{labels.creditCardInfo}}</span>
+</nav>
 
-  <nav class="navbar navbar-dark bg-dark">
-    <span class="navbar-brand mb-0 h1">Credit Card Info</span>
-  </nav>
-<div class="background">
-    <div class="container">
-    
-        <div class="row">
-            <h4>Please enter card details.</h4>
-        </div>
-        <div class="row">
-            <button class="btn btn-secondary"k *ngIf="!hideBtn" (click)="onClick()">Enter card details</button>
-        </div>
-    </div>
-    
+<div class="container" *ngIf="!hideBtn">
+
+   <div class="row">
+      <h2>{{labels.creditGuidelines}}</h2>
+   </div>
+
+   <div class="row">
+      {{labels.creditCardHandy}}
+   </div>
+   <div class="row">
+
+      <ul>
+         <li>{{labels.cardNumber}}</li>
+         <li>{{labels.cardHolderName}}</li>
+         <li>{{labels.expiryDate}}</li>
+         <li>{{labels.securityCode}}</li>
+      </ul>
+   </div>
+   <div class="row">
+      <button class="btn btn-secondary" (click)="onClick()">{{labels.enterCardDetails}}</button>
+   </div>
+</div>
+
 <router-outlet></router-outlet>
-  </div>

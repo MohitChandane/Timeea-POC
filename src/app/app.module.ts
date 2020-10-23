@@ -10,19 +10,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
+   declarations: [
+      AppComponent,
       UserDashboardComponent
    ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-  ],
-  providers: [PaymentService],
-  bootstrap: [AppComponent]
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      FormsModule,
+      AppRoutingModule,
+      ReactiveFormsModule,
+      HttpClientModule,
+   ],
+   providers: [PaymentService],
+   bootstrap: [AppComponent]
 })
 export class AppModule { }
